@@ -1,0 +1,43 @@
+.button-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button-container > h1{
+    margin-bottom: 30px;
+}
+.button-emergancy{
+    width: 300px;
+    background: #dde1e7;
+    margin: 10px 0px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94, 104, 121, 0.788);
+    transition: ease 0.5s all;
+    cursor: pointer;
+}
+.button-emergancy:hover{
+    scale: 1.2;
+}
+.button-emergancy span{
+    flex: 0.6;
+    display: flex;
+    justify-content: center;
+}
+.button-emergancy span:nth-child(2){
+    flex: 0.4;
+
+}
+@media(max-width:600px){
+    .button-container > h1 {
+        text-align: center;
+        font-size: 20px;
+    }
+}

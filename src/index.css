@@ -1,13 +1,238 @@
-body {
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;   
+ }
+ body{
+     width: 100%;
+     min-height: 100vh;
+     /* background: #b2b0b0; */
+     /* overflow: hidden; */
+    font-family:Poppins,Arial, Helvetica, sans-serif;
+    position: relative;
+    background: #dde1e7;
+ }
+ .container{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  font-size: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  line-height: 30px;
+  transition: all.3s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+ }
+ .container:hover{
+     background-color: green;
+ }
+ .card-grid{
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 20px;
+  padding: 30px;
+  /* overflow: scroll; */
+ }
+/* @media(min-width:1100px){
+  .card-grid{
+    grid-template-rows: repeat(3,1fr);
+    grid-auto-flow: column;
+   }  
+} */
+
+ .card-grid > .card{
+    position: relative;
+  height: 270px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: -3px -3px 7px #ffffff73,
+  2px 2px 5px rgba(94, 104, 121, 0.988);
+  transition: ease 0.3s all;
+ }
+ .card-grid > .card:hover{
+  scale: 1.03;
+ }
+ .text-part{
+    flex: 0.55;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    color: #000;
+ }
+ .text-part > h4{
+    font-size: 18px;
+    margin-bottom: 5px;
+ }
+ .text-part > p{
+    margin-block: 3px;
+    font-size: 14px;
+ }
+ .img-part{
+    flex: 0.45;
+    position: relative;
+ }
+ .img-part > img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+ }
+ .card-grid > .card > button {
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+  width: 120px;
+  height: 35px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  background: #dde1e7;
+  box-shadow: -3px -3px 7px #ffffff73,
+  2px 2px 5px rgba(94, 104, 121, 0.988);
+  cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media(max-width:1100px){
+   .card-grid{
+       grid-template-columns: repeat(2,1fr);
+       grid-template-rows: repeat(2,1fr);
+      }
 }
+@media(max-width:800px){
+   .card-grid{
+       grid-template-columns: repeat(1,1fr);
+       padding: 10px;
+      }
+      .card-grid > .card{
+        flex-direction:column-reverse;
+        height: 420px;
+      }
+}
+.directions li span.arrow {
+   display:inline-block;
+   min-width:28px;
+   min-height:28px;
+   background-position:0px;
+   background-image: url("https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b/img/arrows.png");
+   position:relative;
+   top:8px;
+ 
+ }
+ .directions li span {
+  font-size: 16px;
+ }
+ .directions li span.depart  {
+   background-position:-28px;
+ }
+ .directions li span.rightturn  {
+   background-position:-224px;
+ }
+ .directions li span.leftturn{
+   background-position:-252px;
+ }
+ .directions li span.arrive  {
+   background-position:-1288px;
+ }
+ #panel{
+  padding: 20px;
+  border-radius: 46px;
+  background: #e0e0e0;
+  box-shadow: inset 20px 20px 22px #bebebe,
+              inset -20px -20px 22px #ffffff;
+ max-width: 700px;
+ }
+ #map{
+   width: 500px;
+   height: 500px;
+   background: #ffffff;
+   padding: 10px;
+   box-shadow: -3px -3px 7px #ffffff73,
+   2px 2px 5px rgba(94, 104, 121, 0.988);
+   border-radius: 10px;
+   overflow: hidden;
+ }
+ .header-icon{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .header-icon span{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  font-size: 22px;
+  cursor: pointer;
+ }
+ .container-map{
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+  gap: 40px;
+  overflow: hidden !important;
+  padding-bottom: 40px;
+ }
+ .directions-1{
+  font-size: 16px;
+  margin-top: 20px;
+ }
+ @media(max-width:1050px){
+  .container-map{
+    align-items: center;
+    flex-direction: column;
+  
+   }
+} @media(max-width:700px){
+  #map{
+    width: 300px;
+    height: 300px;
+  }
+  #panel{
+    margin: 10px;
+  }
+  .directions {
+    padding: 0px 10px;
+  }
+  .directions li span {
+    font-size: 14px;
+   }
+
+   #panel h3{
+    font-size: 18px;
+    text-align: center;
+    padding-inline: 10px;
+   }
+   .directions-1{
+    margin-bottom: 15px;
+   }
+}
+
+
+
+
+	
+
+
+
